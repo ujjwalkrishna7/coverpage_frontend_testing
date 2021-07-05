@@ -61,6 +61,7 @@ export default ({
   logoLink,
   links,
   className,
+  navbarScroll,
   collapseBreakpointClass = "lg",
 }) => {
   /*
@@ -127,6 +128,7 @@ export default ({
         <NavToggle
           onClick={toggleNavbar}
           className={showNavLinks ? "open" : "closed"}
+          id={navbarScroll ? "navbarText" : ""}
         >
           {showNavLinks ? (
             <CloseIcon tw="w-6 h-6" />

@@ -1,6 +1,7 @@
 import React from "react";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
+import VisibilitySensor from "react-visibility-sensor";
 import {
   SectionHeading,
   Subheading as SubheadingBase,
@@ -10,6 +11,7 @@ import {
   ContentWithPaddingXl,
 } from "components/misc/Layouts";
 import { SectionDescription } from "components/misc/Typography";
+import CountUp from "react-countup";
 
 const Container = tw(
   ContainerBase
@@ -35,7 +37,7 @@ export default ({
   stats = [
     {
       key: "Clients",
-      value: "78+",
+      value: "78",
     },
     {
       key: "Projects",
@@ -43,7 +45,7 @@ export default ({
     },
     {
       key: "Hours of Support",
-      value: "1064+",
+      value: "1064",
     },
     {
       key: "Hard Workers",
@@ -63,7 +65,20 @@ export default ({
         <StatsContainer>
           {stats.map((stat, index) => (
             <Stat key={index}>
-              <StatValue>{stat.value}</StatValue>
+              <StatValue>
+                <CountUp
+                  end={stat.value}
+                  start={0}
+                  duration={1.25}
+                  redraw={true}
+                >
+                  {({ countUpRef, start }) => (
+                    <VisibilitySensor onChange={start} delayedCall>
+                      <span ref={countUpRef} />
+                    </VisibilitySensor>
+                  )}
+                </CountUp>
+              </StatValue>
               <StatKey>{stat.key}</StatKey>
             </Stat>
           ))}

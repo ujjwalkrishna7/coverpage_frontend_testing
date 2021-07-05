@@ -11,7 +11,7 @@ import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { ReactComponent as SvgDecoratorBlob } from "images/svg-decorator-blob-6.svg";
 
-const HeaderContainer = tw.div`mt-10 w-full flex flex-col items-center`;
+const HeaderContainer = tw.div`mt-0 w-full flex flex-col items-center`;
 const Subheading = tw(SubheadingBase)`mb-4`;
 const Heading = tw(SectionHeading)`w-full`;
 const Description = tw(SectionDescription)`w-full text-center`;
@@ -26,12 +26,24 @@ const Plan = styled.div`
   ${(props) =>
     props.featured &&
     css`
-      background: rgb(100,21,255);
-      background: linear-gradient(135deg, rgba(100,21,255,1) 0%, rgba(128,64,252,1) 100%);
-background: rgb(85,60,154);
-background: linear-gradient(135deg, rgba(85,60,154,1) 0%, rgba(128,90,213,1) 100%);
-background: rgb(76,81,191);
-background: linear-gradient(135deg, rgba(76,81,191,1) 0%, rgba(102,126,234,1) 100%);
+      background: rgb(100, 21, 255);
+      background: linear-gradient(
+        135deg,
+        rgba(100, 21, 255, 1) 0%,
+        rgba(128, 64, 252, 1) 100%
+      );
+      background: rgb(85, 60, 154);
+      background: linear-gradient(
+        135deg,
+        rgba(85, 60, 154, 1) 0%,
+        rgba(128, 90, 213, 1) 100%
+      );
+      background: rgb(76, 81, 191);
+      background: linear-gradient(
+        135deg,
+        rgba(76, 81, 191, 1) 0%,
+        rgba(102, 126, 234, 1) 100%
+      );
       ${tw`bg-primary-500 text-gray-100`}
       .planHighlight {
         ${tw`hidden`}
@@ -47,6 +59,7 @@ background: linear-gradient(135deg, rgba(76,81,191,1) 0%, rgba(102,126,234,1) 10
       }
       ${BuyNowButton} {
         ${tw`bg-gray-100 text-primary-500 hocus:bg-gray-300 hocus:text-primary-800`}
+      }
     `}
 `;
 

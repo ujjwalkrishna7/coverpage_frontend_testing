@@ -8,16 +8,16 @@ import {
 } from "components/misc/Headings.js";
 import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/briefcase.svg";
 import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/dollar-sign.svg";
-import TeamIllustrationSrc from "images/team-illustration-2.svg";
+import TeamIllustrationSrc from "images/business_chat.svg";
 import { SectionDescription } from "components/misc/Typography";
 
 const Container = tw.div`relative`;
-const HeadingContainer = tw.div`text-center mx-auto pt-20 md:pt-24 pb-5`;
-const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-lg mx-auto pb-20 md:pb-24`;
+const HeadingContainer = tw.div`text-center mx-auto pt-10 md:pt-12 pb-5`;
+const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-lg mx-auto pb-10 md:pb-12`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
-const ImageColumn = tw(Column)`md:w-5/12 flex-shrink-0 h-80 md:h-auto`;
+const ImageColumn = tw(Column)`md:w-6/12 flex-shrink-0 h-80 md:h-auto`;
 const TextColumn = styled(Column)((props) => [
-  tw`md:w-7/12 mt-16 md:mt-0`,
+  tw`md:w-6/12 mt-16 md:mt-0`,
   props.textOnLeft
     ? tw`md:mr-12 lg:mr-16 md:order-first`
     : tw`md:ml-12 lg:ml-16 md:order-last`,
@@ -25,7 +25,7 @@ const TextColumn = styled(Column)((props) => [
 
 const Image = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
-  tw`rounded bg-contain bg-no-repeat bg-center h-full`,
+  tw`rounded bg-contain bg-no-repeat bg-center mt-5 h-full`,
 ]);
 const TextContent = tw.div`lg:py-8 text-center md:text-left`;
 

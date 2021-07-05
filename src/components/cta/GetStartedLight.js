@@ -1,16 +1,16 @@
 import React from "react";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-9.svg";
-import { ContentWithPaddingXl, Container } from "components/misc/Layouts";
+// import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-9.svg";
+import { Container } from "components/misc/Layouts";
 
-const PrimaryBackgroundContainer = tw.div`py-16 lg:py-20 bg-purple-200 rounded-lg relative`;
+const PrimaryBackgroundContainer = tw.div`py-16 lg:py-20 relative`;
 const Row = tw.div`px-4 sm:px-16 mx-auto flex justify-center items-center relative z-10 flex-col lg:flex-row text-center lg:text-left`;
-
+const ContentWithPaddingXl = tw.div`-mx-8 px-8 bg-black`;
 const ColumnContainer = tw.div`lg:w-1/2 max-w-lg`;
 const TextContainer = tw(ColumnContainer)`text-2xl sm:text-4xl font-bold`;
-const Subheading = tw.h6`text-primary-500 opacity-75`;
-const Heading = tw.h5`text-primary-500`;
+const Subheading = tw.h6`text-white`;
+const Heading = tw.h5`text-gray-400`;
 
 const LinksContainer = tw(
   ColumnContainer
@@ -26,20 +26,20 @@ const SecondaryLink = tw(
   Link
 )`text-primary-500 hover:text-primary-600 bg-gray-100 hover:bg-gray-200`;
 
-const DecoratorBlobContainer = tw.div`absolute inset-0 overflow-hidden rounded-lg`;
+// const DecoratorBlobContainer = tw.div`absolute inset-0 overflow-hidden rounded-lg`;
 
-const DecoratorBlob1 = tw(
-  SvgDecoratorBlob1
-)`absolute bottom-0 left-0 w-80 h-80 transform -translate-x-20 translate-y-32 text-primary-500 opacity-5`;
+// const DecoratorBlob1 = tw(
+//   SvgDecoratorBlob1
+// )`absolute bottom-0 left-0 w-80 h-80 transform -translate-x-20 translate-y-32 text-primary-500 opacity-5`;
 
-const DecoratorBlob2 = tw(
-  SvgDecoratorBlob1
-)`absolute top-0 right-0 w-80 h-80 transform  translate-x-20 -translate-y-64 text-primary-500 opacity-5`;
+// const DecoratorBlob2 = tw(
+//   SvgDecoratorBlob1
+// )`absolute top-0 right-0 w-80 h-80 transform  translate-x-20 -translate-y-64 text-primary-500 opacity-5`;
 
 export default ({
   subheading = "Excited about ProInsights ?",
   heading = "Register now !",
-  primaryLinkText = "Resgister",
+  primaryLinkText = "Register",
   primaryLinkUrl = "http://timerse.com",
   secondaryLinkText = "Log In",
   secondaryLinkUrl = "http://google.com",
@@ -61,10 +61,6 @@ export default ({
               </SecondaryLink>
             </LinksContainer>
           </Row>
-          <DecoratorBlobContainer>
-            <DecoratorBlob1 />
-            <DecoratorBlob2 />
-          </DecoratorBlobContainer>
         </PrimaryBackgroundContainer>
       </ContentWithPaddingXl>
     </Container>

@@ -15,3 +15,15 @@
   transform: scale(0);
   /* transform: translateY(-150%); */
 }
+
+/* NavbarColors */
+.navbarText {
+  color: black !important;
+}
+.navbarHeading {
+  color: #006bff !important;
+}
+
+#navbarText {
+  color: black !important;
+}

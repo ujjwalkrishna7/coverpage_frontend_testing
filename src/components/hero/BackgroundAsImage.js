@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
+import logo from "../../images/Proinsights.png";
 
 import Header, {
   NavLink,
@@ -12,8 +13,14 @@ import Header, {
   DesktopNavLinks,
 } from "../headers/light.js";
 
+const NavbarContainer = styled.div(({ navbarScroll }) => [
+  tw`z-30 pt-4 overflow-hidden fixed w-full top-0 left-0 pb-4 transition-all duration-300 ease-in-out`,
+  navbarScroll &&
+    tw`bg-white pt-2 transition-all duration-300 ease-in-out shadow-lg`,
+]);
+
 const StyledHeader = styled(Header)`
-  ${tw`pt-8 max-w-none`}
+  ${tw`pt-4 max-w-none`}
   ${DesktopNavLinks} ${NavLink}, ${LogoLink} {
     ${tw`text-gray-100 hover:border-gray-300 hover:text-gray-300`}
   }
@@ -29,7 +36,7 @@ const Container = styled.div`
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-gray-900 opacity-50`;
 
 const HeroContainer = tw.div`z-20 relative px-4 sm:px-8 max-w-screen-xl mx-auto`;
-const TwoColumn = tw.div`pt-24 pb-32 px-4 flex justify-between items-center flex-col lg:flex-row`;
+const TwoColumn = tw.div`pt-32 pb-32 px-4 flex justify-between items-center flex-col lg:flex-row`;
 const LeftColumn = tw.div`flex flex-col items-center lg:block`;
 
 const Heading = styled.h1`
@@ -47,30 +54,69 @@ const SlantedBackground = styled.span`
   }
 `;
 
-const PrimaryAction = tw.button`px-8 py-3 mt-10 mr-3 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 bg-primary-500 text-gray-100 
-font-bold rounded-full shadow transition duration-300 hocus:bg-primary-800 hocus:text-gray-100 focus:shadow-outline`;
+const PrimaryAction = tw.button`px-8 py-3 mt-10 mr-3 text-sm sm:text-base sm:mt-16 sm:px-6 sm:py-3 border-2 text-gray-100 
+font-bold rounded-full shadow transition duration-300 hocus:bg-primary-500 hocus:border-primary-500 hocus:text-gray-100 focus:shadow-outline`;
 
 export default () => {
+  const [navbarScroll, setNavbarScroll] = useState(false);
+  const changeNavbarScroll = () => {
+    if (window.scrollY >= 80) {
+      setNavbarScroll(true);
+    } else {
+      setNavbarScroll(false);
+    }
+  };
+  window.addEventListener("scroll", changeNavbarScroll);
+
   const navLinks = [
     <NavLinks key={1}>
-      <NavLink href="#">About</NavLink>
-      <NavLink href="#">Services</NavLink>
-      <NavLink href="#">Pricing</NavLink>
-      <NavLink href="#">Testimonials</NavLink>
+      <NavLink className={navbarScroll && "navbarText"} href="#">
+        About
+      </NavLink>
+      <NavLink className={navbarScroll && "navbarText"} href="#">
+        Services
+      </NavLink>
+      <NavLink className={navbarScroll && "navbarText"} href="#">
+        Pricing
+      </NavLink>
+      <NavLink className={navbarScroll && "navbarText"} href="#">
+        Testimonials
+      </NavLink>
     </NavLinks>,
     <NavLinks key={2}>
-      <NavLink href="/#" tw="lg:ml-12!">
-        Login
+      <NavLink
+        className={navbarScroll && "navbarText"}
+        href="/#"
+        tw="lg:ml-12!"
+      >
+        Log In
       </NavLink>
-      <PrimaryLink href="/#">Sign Up</PrimaryLink>
+      <PrimaryLink css={tw`rounded-full`} href="/#">
+        Sign Up
+      </PrimaryLink>
     </NavLinks>,
   ];
+
+  const logoLink = (
+    <LogoLink className={navbarScroll && "navbarHeading"} href="/">
+      <img src={logo} alt="logo" />
+      ProInsights
+    </LogoLink>
+  );
 
   return (
     <Container>
       <OpacityOverlay />
+      <NavbarContainer navbarScroll={navbarScroll}>
+        <HeroContainer>
+          <StyledHeader
+            links={navLinks}
+            logoLink={logoLink}
+            navbarScroll={navbarScroll}
+          />
+        </HeroContainer>
+      </NavbarContainer>
       <HeroContainer>
-        <StyledHeader links={navLinks} />
         <TwoColumn>
           <LeftColumn>
             <Heading>

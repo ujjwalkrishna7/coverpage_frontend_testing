@@ -7,8 +7,8 @@ import MainCover from "components/hero/BackgroundAsImage.js";
 import Services from "components/features/DashedBorderSixFeatures";
 import AboutReviewer from "components/features/TwoColSingleFeatureWithStats2.js";
 import AboutBusiness from "components/features/TwoColWithTwoFeaturesAndButtons.js";
-import SubscribeNewsLetterForm from "components/forms/SimpleSubscribeNewsletter.js";
-import Clients from "components/cta/Clients.js";
+// import SubscribeNewsLetterForm from "components/forms/SimpleSubscribeNewsletter.js";
+//import Clients from "components/cta/Clients.js";
 import Testimonial from "components/testimonials/SimplePrimaryBackground.js";
 import Pricing from "components/pricing/ThreePlans.js";
 import ContactUsForm from "components/forms/TwoColContactUsWithIllustration.js";
@@ -25,7 +25,7 @@ export default () => {
   const HighlightedText = tw.span`text-primary-500`;
 
   return (
-    <AnimationRevealPage disabled>
+    <AnimationRevealPage>
       <MainCover />
       <AboutBusiness />
       <AboutReviewer />
@@ -41,26 +41,44 @@ export default () => {
         description={<>Choose the plan that’s right for you</>}
         plans={[
           {
-            name: "Personal",
+            name: "Standard",
             price: "$4.99",
             duration: "Monthly",
-            mainFeature: "For Individuals",
-            features: ["text here", "text here", "text here", "text here"],
+            mainFeature: "For Startups",
+            features: [
+              "Trusted Reviews & Opinion upto 10",
+              "Single Admin",
+              "Chat Interaction",
+              "Limited Session Duration",
+              "Local Storage",
+            ],
           },
           {
-            name: "Business",
-            price: "$29.99",
+            name: "Premium",
+            price: "$89.99",
             duration: "Monthly",
             mainFeature: "For Small Businesses",
-            features: ["text here", "text here", "text here", "text here"],
+            features: [
+              "Limited Cloud Storage",
+              "Three Admin",
+              "Video-Intraction(One-One)",
+              "Bounded Demographic Segmentation",
+              "Company choice of Customers",
+            ],
             featured: true,
           },
           {
-            name: "Enterprise",
-            price: "$99.99",
+            name: "Elite",
+            price: "$199.99",
             duration: "Monthly",
             mainFeature: "For Large Companies",
-            features: ["text here", "text here", "text here", "text here"],
+            features: [
+              "Access to verified reviewer information",
+              "Multiple Admin control",
+              "Video Intraction",
+              "Complete Demographic Segmentaion",
+              "Customizable Cloud Storage options",
+            ],
           },
         ]}
       />
@@ -97,11 +115,8 @@ export default () => {
         ]}
         textOnLeft={true}
       />
-
       <ContactUsForm />
-      <Clients text={<>Our Clients</>} />
       <GetStarted />
-      <SubscribeNewsLetterForm />
       <Footer />
     </AnimationRevealPage>
   );

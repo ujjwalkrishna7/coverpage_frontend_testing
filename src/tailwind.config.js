@@ -1,6 +1,6 @@
 module.exports = {
   prefix: "",
-  important: false,
+  important: true,
   separator: ":",
   theme: {
     screens: {
@@ -17,6 +17,18 @@ module.exports = {
       white: "#fff",
 
       primary: {
+        100: "#96d5fe",
+        200: "#46b5ff",
+        300: "#0099ff",
+        400: "#358aff",
+        500: "#006bff",
+        600: "#0b72e4",
+        700: "#0764cb",
+        800: "#0658b3",
+        900: "#004796",
+      },
+
+      primaryInitial: {
         100: "#a273ff",
         200: "#935bff",
         300: "#8344ff",
@@ -51,6 +63,7 @@ module.exports = {
         700: "#4a5568",
         800: "#2d3748",
         900: "#1a202c",
+        1000: "#191c20",
       },
       red: {
         100: "#fff5f5",

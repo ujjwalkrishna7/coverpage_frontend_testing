@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import tw from "twin.macro";
 
 /* framer-motion and useInView here are used to animate the sections in when we reach them in the viewport
  */
-import { motion } from "framer-motion";
-import useInView from "@owaiswiz/use-in-view";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const StyledDiv = tw.div`font-display min-h-screen text-secondary-500 p-8 overflow-hidden`;
 function AnimationReveal({ disabled, children }) {
@@ -17,7 +17,10 @@ function AnimationReveal({ disabled, children }) {
   const directions = ["left", "right"];
   const childrenWithAnimation = children.map((child, i) => {
     return (
-      <AnimatedSlideInComponent key={i} direction={directions[i % directions.length]}>
+      <AnimatedSlideInComponent
+        key={i}
+        direction={directions[i % directions.length]}
+      >
         {child}
       </AnimatedSlideInComponent>
     );
@@ -25,32 +28,42 @@ function AnimationReveal({ disabled, children }) {
   return <>{childrenWithAnimation}</>;
 }
 
-function AnimatedSlideInComponent({ direction = "left", offset = 30, children }) {
-  const [ref, inView] = useInView(30);
-
+function AnimatedSlideInComponent({
+  direction = "left",
+  offset = 30,
+  children,
+}) {
   const x = { target: "0%" };
 
   if (direction === "left") x.initial = "-150%";
   else x.initial = "150%";
 
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
   return (
     <motion.section
-      initial={{ x: x.initial }}
-      animate={{ 
-        x: inView && x.target,
-        transitionEnd:{
-          x: inView && 0
-        }
-      }}
-      transition={{ type: "spring", damping: 19 }}
       ref={ref}
+      animate={controls}
+      initial="hidden"
+      transition={{ duration: 0.5, ease: [0.6, -0.05, 0.01, 0.99] }}
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: -50 },
+      }}
     >
       {children}
     </motion.section>
   );
 }
 
-export default props => (
+export default (props) => (
   <StyledDiv className="App">
     <AnimationReveal {...props} />
   </StyledDiv>

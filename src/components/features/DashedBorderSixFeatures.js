@@ -5,19 +5,19 @@ import tw from "twin.macro";
 import { css } from "styled-components/macro";
 import { SectionHeading } from "components/misc/Headings.js";
 
-import defaultCardImage from "../../images/shield-icon.svg";
+import defaultCardImage from "../../images/customer_dev.svg";
 
 import { ReactComponent as SvgDecoratorBlob3 } from "../../images/svg-decorator-blob-3.svg";
 
-import SupportIconImage from "../../images/support-icon.svg";
-import ShieldIconImage from "../../images/shield-icon.svg";
-import CustomizeIconImage from "../../images/customize-icon.svg";
-import ReliableIconImage from "../../images/reliable-icon.svg";
+import CustomerDiscovery from "../../images/customer_discovery.svg";
+import CustomerDevelopement from "../../images/customer_dev.svg";
+import ValueProposition from "../../images/value_proposition.svg";
+import Mvp from "../../images/mvp.svg";
 
 const Container = tw.div`relative`;
 
 const ThreeColumnContainer = styled.div`
-  ${tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto py-20 md:py-24`}
+  ${tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto py-5 md:py-6`}
 `;
 const Heading = tw(SectionHeading)`w-full`;
 
@@ -26,29 +26,29 @@ const Column = styled.div`
 `;
 
 const Card = styled.div`
-  ${tw`flex flex-col mx-auto max-w-sm items-center px-6 py-10 border-2 border-dashed border-primary-500 rounded-lg mt-12`}
+  ${tw`z-10 bg-white flex flex-col mx-auto max-w-xs items-center px-6 py-5 shadow-xl rounded-5xl mt-12`}
   .imageContainer {
-    ${tw`border-2 border-primary-500 text-center rounded-full p-6 flex-shrink-0 relative`}
+    ${tw`text-center p-3 flex-shrink-0 relative`}
     img {
-      ${tw`w-8 h-8`}
+      ${tw`w-32 h-32`}
     }
   }
 
   .textContainer {
-    ${tw`mt-6 text-center`}
+    ${tw`my-6 text-center`}
   }
 
   .title {
-    ${tw`mt-2 font-bold text-xl leading-none text-primary-500`}
+    ${tw`mt-2 text-left font-black text-xl leading-none text-primary-500`}
   }
 
   .description {
-    ${tw`mt-3 font-semibold text-secondary-100 text-sm leading-loose`}
+    ${tw`font-normal px-5 text-secondary-100 text-sm text-left leading-loose`}
   }
 `;
 
 const DecoratorBlob = styled(SvgDecoratorBlob3)`
-  ${tw`pointer-events-none absolute right-0 bottom-0 w-64 opacity-25 transform translate-x-32 translate-y-48 `}
+  ${tw`z-0 pointer-events-none absolute right-0 bottom-0 w-64 opacity-25 transform translate-x-32 translate-y-48 `}
 `;
 
 export default () => {
@@ -62,25 +62,25 @@ export default () => {
 
   const cards = [
     {
-      imageSrc: ShieldIconImage,
+      imageSrc: CustomerDevelopement,
       title: "Customer Development",
       description:
         "ProInsights builds a four-step framework,to discover and validate that you have identified a need(s) that customers have,built the right product to satisfy that customer’s need(s),and deploy the right resources in the organization to meet the demand for the product.",
     },
     {
-      imageSrc: SupportIconImage,
+      imageSrc: CustomerDiscovery,
       title: "Customer Discovery",
       description:
         "We focus on four blocks of the lean canvas, developing assumptions, and turning those assumptions into hypotheses which founders will then go out and test.Through ProInsights you can locate and contact your potential users and validate your hypothesis with real people.",
     },
     {
-      imageSrc: CustomizeIconImage,
+      imageSrc: ValueProposition,
       title: "Value Propostion",
       description:
         "The value a company promises to deliver to customers should they choose to buy their product, Through a proper customer Discovery process you will be able to identify the real pain of the Customers",
     },
     {
-      imageSrc: ReliableIconImage,
+      imageSrc: Mvp,
       title: "Test your MVP",
       description:
         "Get your MVP tested by real people and get insights on building products that people love. It is necessary to test and review MVP in-depth, so as to avoid wasting time and efforts in building a full-fledged product.",
@@ -96,11 +96,13 @@ export default () => {
         {cards.map((card, i) => (
           <Column key={i}>
             <Card>
+              <span className="textContainer">
+                <span className="title">{card.title || "Fully Secure"}</span>
+              </span>
               <span className="imageContainer">
                 <img src={card.imageSrc || defaultCardImage} alt="" />
               </span>
               <span className="textContainer">
-                <span className="title">{card.title || "Fully Secure"}</span>
                 <p className="description">
                   {card.description ||
                     "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud. Sic Semper Tyrannis. Neoas Calie artel."}

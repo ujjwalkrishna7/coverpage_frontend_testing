@@ -5,14 +5,15 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/briefcase.svg";
 import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/dollar-sign.svg";
 import { SectionHeading } from "components/misc/Headings.js";
-import StatsIllustrationSrc from "images/stats-illustration.svg";
+// import StatsIllustrationSrc from "images/stats-illustration.svg";
+import StatsIllustrationSrc from "images/reviewers.svg";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-9.svg";
 
 const Container = tw(
   ContainerBase
-)`my-8 lg:my-10 bg-gray-900 text-gray-100 -mx-8 px-8`;
+)`my-8 lg:my-10 bg-gray-1000 text-gray-100 -mx-8 px-8`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-7/12 flex-shrink-0 h-80 md:h-auto relative`;
@@ -43,20 +44,20 @@ const FeatureIconContainer = styled.div`
   }
 `;
 
-const FeatureText = tw.div`mt-4 md:mt-0 md:ml-4 text-center md:text-left`;
-const FeatureHeading = tw.div`font-bold text-lg text-primary-200`;
-const FeatureDescription = tw.div`mt-1 font-semibold text-base`;
+const FeatureText = tw.div`z-10 mt-4 md:mt-0 md:ml-4 text-center md:text-left`;
+const FeatureHeading = tw.div`z-10 font-bold text-lg text-primary-200`;
+const FeatureDescription = tw.div`z-10 mt-1 font-semibold text-base`;
 const DecoratorBlob = styled(SvgDotPattern)((props) => [
   tw`w-20 h-20 absolute right-0 bottom-0 transform translate-x-1/2 translate-y-1/2 fill-current text-primary-200 -z-10`,
 ]);
 
-const DecoratorBlobContainer = tw.div`absolute inset-0 overflow-hidden rounded-lg`;
+const DecoratorBlobContainer = tw.div`z-0 absolute inset-0 overflow-hidden rounded-lg`;
 const DecoratorBlob1 = tw(
   SvgDecoratorBlob1
-)`absolute bottom-0 left-0 w-80 h-80 transform -translate-x-20 translate-y-32 text-gray-800 opacity-50`;
+)`z-0 absolute bottom-0 left-0 w-80 h-80 transform -translate-x-20 translate-y-32 text-gray-800 opacity-50`;
 const DecoratorBlob2 = tw(
   SvgDecoratorBlob1
-)`absolute top-0 right-0 w-80 h-80 transform  translate-x-20 -translate-y-64 text-gray-800 opacity-50`;
+)`z-0 absolute top-0 right-0 w-80 h-80 transform  translate-x-20 -translate-y-64 text-gray-800 opacity-50`;
 
 export default ({
   heading = (
