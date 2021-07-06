@@ -177,7 +177,7 @@ export default ({
   ];
 
   return (
-    <Container>
+    <Container id="pricing-scroll">
       <ContentWithPaddingXl>
         <HeaderContainer>
           {subheading && <Subheading>{subheading}</Subheading>}

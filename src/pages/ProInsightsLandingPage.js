@@ -3,18 +3,18 @@ import tw from "twin.macro"; //eslint-disable-line
 import { css } from "styled-components/macro"; //eslint-disable-line
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 
-import MainCover from "components/hero/BackgroundAsImage.js";
-import Services from "components/features/DashedBorderSixFeatures";
-import AboutReviewer from "components/features/TwoColSingleFeatureWithStats2.js";
-import AboutBusiness from "components/features/TwoColWithTwoFeaturesAndButtons.js";
-// import SubscribeNewsLetterForm from "components/forms/SimpleSubscribeNewsletter.js";
-//import Clients from "components/cta/Clients.js";
-import Testimonial from "components/testimonials/SimplePrimaryBackground.js";
+import MainCover from "components/hero/MainCoverScreen.js";
+import Services from "components/features/Services";
+import AboutBusiness from "components/features/AboutBusiness.js";
+import AboutReviewer from "components/features/AboutReviewer.js";
+import Testimonial from "components/testimonials/Testimonial.js";
 import Pricing from "components/pricing/ThreePlans.js";
-import ContactUsForm from "components/forms/TwoColContactUsWithIllustration.js";
-import Footer from "components/footers/FiveColumnDark.js";
-import FeatureStats from "components/features/ThreeColCenteredStatsPrimaryBackground.js";
+import ContactUsForm from "components/forms/ContactUs.js";
+import Footer from "components/footers/Footer.js";
+import FeatureStats from "components/features/FeatureStats.js";
 import GetStarted from "components/cta/GetStartedLight.js";
+// import SubscribeNewsLetterForm from "components/forms/SubscribeNewsletter.js";
+//import Clients from "components/cta/Clients.js";
 
 import testimonial1 from "images/Adwitiya.jpeg";
 import testimonial2 from "images/Abhilasha.jpeg";

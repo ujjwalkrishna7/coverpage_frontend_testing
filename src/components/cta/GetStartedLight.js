@@ -40,9 +40,9 @@ export default ({
   subheading = "Excited about ProInsights ?",
   heading = "Register now !",
   primaryLinkText = "Register",
-  primaryLinkUrl = "http://timerse.com",
+  primaryLinkUrl = "",
   secondaryLinkText = "Log In",
-  secondaryLinkUrl = "http://google.com",
+  secondaryLinkUrl = "",
   pushDownFooter = true,
 }) => {
   return (
